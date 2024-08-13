@@ -2,6 +2,8 @@
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 void help() {
     printf("Usage: ./hash_collider [OPTIONS] <algorithm_file>\n");
@@ -17,32 +19,31 @@ void help() {
 }
 
 void version() {
-    printf("Hash Collider Version 1.0\n");
+    printf("1.0\n");
     exit(0);
 }
 
 
 void parse_arguments(int argc, char *argv[], int *hash_size, int *word_length, char **dict_file, char **algorithm_file) {
-    // broken, need to fix
     *hash_size = HASH_SIZE;
     *word_length = WORD_LENGTH;
     *dict_file = NULL;
     *algorithm_file = NULL;
-
-    for (int i = 1; i < argc; i++) {
+    int i = 1;
+    while (i < argc){
         if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
             help();
         } else if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--version") == 0) {
             version();
         } else if (strcmp(argv[i], "-d") == 0 || strcmp(argv[i], "--dict") == 0) {
-            if (i + 1 < argc) {
+            if (i++ < argc) {
                 *dict_file = argv[++i];
             } else {
                 fprintf(stderr, "Error: Missing argument for -d/--dict\n");
                 help();
             }
         } else if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--word-len") == 0) {
-            if (i + 1 < argc) {
+            if (i++ < argc) {
                 *word_length = atoi(argv[++i]);
                 if (*word_length <= 0) {
                     fprintf(stderr, "Invalid word length specified. Using default value: %d\n", WORD_LENGTH);
@@ -53,7 +54,7 @@ void parse_arguments(int argc, char *argv[], int *hash_size, int *word_length, c
                 help();
             }
         } else if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--hash-size") == 0) {
-            if (i + 1 < argc) {
+            if (i++ < argc) {
                 *hash_size = atoi(argv[++i]);
                 if (*hash_size <= 0) {
                     fprintf(stderr, "Invalid hash size specified. Using default value: %d\n", HASH_SIZE);
@@ -64,12 +65,12 @@ void parse_arguments(int argc, char *argv[], int *hash_size, int *word_length, c
                 help();
             }
         } else {
-            // The remaining argument should be the algorithm file
             *algorithm_file = argv[i];
         }
+        i++;
     }
 
-    if (*algorithm_file == NULL) {
+    if (*algorithm_file == NULL || strncmp(*algorithm_file, "-", 1) == 0){
         fprintf(stderr, "Error: Algorithm file must be specified.\n");
         help();
     }
