@@ -1,2 +1,3 @@
 # Hash-Collider
-A tool to evaluate your hashing function for potential collisions.
+
+Tool for testing and discovering hash collisions. It allows you to specify your own hashing function and evaluate it for potential collisions.
