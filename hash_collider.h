@@ -4,4 +4,4 @@
 #define WORD_LENGTH 3
 #define HASH_SIZE 3
 
-#endif
+#endif // HASH_COLLIDER_H
