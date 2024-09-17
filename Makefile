@@ -1,12 +1,19 @@
 CC = gcc
-LDFLAGS = -lssl -lcrypto
-TARGET = hash_collider
-SRCS = main.c gen_dict.c
+CFLAGS = -Wall -Wextra -std=c99
+SRC_DIR = src
+TARGET = HashQuake
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(SRCS:.c=.o)
 
-all:
-	$(CC) -g -fsanitize=address -o $(TARGET) $(SRCS) $(LDFLAGS)
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	@rm -f $(OBJS)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(TARGET)
-
+	rm -f $(OBJS) $(TARGET)
 .PHONY: all clean
+
