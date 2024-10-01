@@ -1,6 +1,6 @@
 import sys
 
-def hashing(word):
+def hashing(word: str):
     return word
 
 if len(sys.argv) < 2:

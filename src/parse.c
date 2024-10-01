@@ -15,7 +15,7 @@ int is_positive_integer(const char *str) {
     return 1;
 }
 
-void parse_arguments(int argc, char *argv[], int *word_length, char **wordlist_file, char **algorithm_command, char **output_file) {
+void parse_arguments(int argc, char *argv[], int *word_length, char **wordlist_file, char **algorithm_command, char **output_file, int *display_mode) {
     // Function to parse command-line arguments
     if (argc < 2) {
         help_message(1);
@@ -29,6 +29,8 @@ void parse_arguments(int argc, char *argv[], int *word_length, char **wordlist_f
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
             help_message(0);
+        } else if (strcmp(argv[i], "-d") == 0 || strcmp(argv[i], "--display") == 0) {
+            *display_mode = 1;
         } else if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--version") == 0) {
             version();
         } else if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--wordlist") == 0) {

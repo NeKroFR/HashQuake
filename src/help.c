@@ -13,10 +13,11 @@ void help_message(int exit_status) {
     printf("   -v, --version         Display the version of the program\n");
     printf("   -w, --wordlist <filepath>   Specify a wordlist file\n");
     printf("   -s, --size <num>      Specify the length of words to generate (default 3)\n");
+    printf("   -d --display          Display the collisions in real time (default set to False)\n");
     printf("   -o, --output <filepath>      Specify an output file to store the report\n");
     printf("\nExample:\n");
     printf("    ./hash_collider -w dictionary.txt 'python3 md5.py'\n");
-    printf("    ./hash_collider -s 8 -o report.txt './sha256'\n");
+    printf("    ./hash_collider -s 8 -o report.txt -d './sha256'\n");
     exit(exit_status);
 }
 

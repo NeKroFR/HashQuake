@@ -17,7 +17,6 @@ int main(int argc, char *argv[]) {
         len += strlen(argv[i]) + 1;
     }
 
-    // if there is multiple arguments, concatenate them.
     char* word = malloc(len+1);
     if (!word) {
         fprintf(stderr, "Memory allocation failed\n");
