@@ -65,6 +65,6 @@ func main() {
 	if *threads > maxThreads {
 		*threads = maxThreads
 	}
-
+	fmt.Printf("Colliding with %d threads...\n", *threads)
 	collide(*wordLength, *displayMode, *wordlistFile, *outputFile, *threads, algorithmCommand)
 }
