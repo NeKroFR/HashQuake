@@ -1,20 +1,16 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
-SRC_DIR = src
+SRC_DIR = ./src
 TARGET = HashQuake
-SRCS = $(wildcard $(SRC_DIR)/*.c)
-OBJS = $(SRCS:.c=.o)
 
-all: $(TARGET)
+all: build
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ -lm
+build:
+	go build -o $(TARGET) $(SRC_DIR)/*.go
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+run: build
+	./$(TARGET)
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(TARGET)
 
-.PHONY: all clean
+.PHONY: all build clean run
 
