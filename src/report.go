@@ -1,5 +1,3 @@
-// report.go
-
 package main
 
 import (
