@@ -21,7 +21,8 @@ Options:
    -o, --output <filepath>      Specify an output file
 Example:
     ./HashQuake -w dictionary.txt 'python3 md5.py'
-    ./HashQuake -s 8 -o report.txt -d './sha256'`
+    ./HashQuake -s 8 -o report.txt -d './sha256'
+`
 	fmt.Print(helpMessage)
 	os.Exit(0)
 }
