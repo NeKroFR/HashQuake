@@ -9,6 +9,7 @@ import (
     "sync"
 )
 
+// TODO: display current word in bottom
 const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 func generateWords(word []byte, wordLength int) []string {

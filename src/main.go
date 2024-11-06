@@ -67,4 +67,5 @@ func main() {
 	}
 	fmt.Printf("Colliding with %d threads...\n", *threads)
 	collide(*wordLength, *displayMode, *wordlistFile, *outputFile, *threads, algorithmCommand)
+	fmt.Printf("Done.\n")
 }

@@ -38,23 +38,23 @@ Options:
    -d --display          Display the collisions in real time
    -o, --output <filepath>      Specify an output file
 Example:
-    ./HashQuake -w dictionary.txt 'python3 md5.py'
-    ./HashQuake -s 8 -o report.txt -d './sha256'
-
+    ./HashQuake -w wordlist.txt 'python3 examples/custom_hash1.py'
+    ./HashQuake -t 8 -o report.txt -d './examples/custom_hash2'
 ```
 
 ### Examples
 
-- Use a custom wordlist and run the `md5.py` python3 script:
+- Use a custom wordlist and run the `custom_hash1.py` python3 script:
 
 ```
-./HashQuake -w wordlist.txt 'python3 md5.py'
+./HashQuake -w wordlist.txt 'python3 examples/custom_hash1.py'
 ```
 
-- Generate words with a length of 8 characters, save the output to a file, display collisions in real-time running the `sha256` binary.
+- Generate words with a length of 8 characters, save the output to a file, display collisions in real-time running the `custom_hash2` binary.
 ```
-./HashQuake -s 8 -o report.txt -d './sha256'
+./HashQuake -t 8 -o report.txt -d './examples/custom_hash2'
 ```
+make sure the binary exist, you can compile it first using `gcc examples/custom_hash2.c -o examples/custom_hash2`
 
 ## Importing Your Own Hash Functions
 
