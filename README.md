@@ -9,6 +9,21 @@ While brute-force attacks are generally ineffective against most modern hashing 
 Using Hash-Collider, you can evaluate the collision resistance of your own hash implementations and identify potential weaknesses.
 In addition, with some analysis and the use of targeted word lists, you may be able to find collisions more efficiently than relying solely on generating random character combinations.
 
+
+## Installation
+
+### build from source:
+
+First make sure you have [go](https://go.dev/dl/) 1.23.2 or more installed
+
+then you can run:
+
+```
+git clone https://github.com/NeKroFR/HashQuake.git
+cd HashQuake
+make
+```
+
 ## Usage:
 
 ```
